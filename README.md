@@ -17,7 +17,7 @@ Performed network reconnaissance using Nmap and Wireshark to identify active hos
 | Zenmap | Network scanning | `nmap -sS 192.168.203.0/24` |  
 | Wireshark | Traffic analysis | `tcp.flags.syn==1` filter |  
 
----
+
 
 ## 📌 Key Findings  
 ### Host Discovery  
@@ -35,7 +35,7 @@ Performed network reconnaissance using Nmap and Wireshark to identify active hos
 **36:**
 - 53/tcp - dnsmasq 2.51
 
----
+
 
 ## ⚠️ Identified Risks  
 1. **SMB Exposure (Port 445)**  
@@ -50,14 +50,14 @@ Performed network reconnaissance using Nmap and Wireshark to identify active hos
    - Risk: Medium (Information disclosure)  
    - Recommendation: Restrict to internal network  
 
----
+
 
 ## 📊 Wireshark Analysis  
 - Captured 500+ SYN packets during scan  
 - Verified TCP 3-way handshake patterns  
 - Identified scan timing characteristics  
 
----
+
 
 ## 🔧 Mitigation Steps  
 ```bash  
@@ -68,7 +68,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol
 iptables -A INPUT -p tcp --dport 445 -j DROP
 ```
 
----
+
 
 ## 📂 File Structure
 ```plaintext
@@ -84,7 +84,7 @@ task1/
     └── wireshark_capture.png
 ```
 
----
+
 
 ## 📚 Lessons Learned
 
