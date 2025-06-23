@@ -2,7 +2,7 @@
 # 🔍Port Scanning
 
 ![Tool](https://img.shields.io/badge/Tool-Nmap-blue)
-![Level](https://img.shields.io/badge/Level-Beginner-brightgreen)
+![Level](https://img.shields.io/badge/Level-Intermediate-brightgreen)
 ![Traffic](https://img.shields.io/badge/Wireshark-Traffic%20Analysis-blueviolet)
 
 
