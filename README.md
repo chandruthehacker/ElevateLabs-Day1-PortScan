@@ -1,6 +1,6 @@
 # 🚨 Elevate Cybersecurity Internship - Task 1
 
-## 🔍 Task Title: Local Network Port Scanning and Analysis
+## 🔍 Task Title: Network Port Scanning and Analysis
 
 This task involved performing various types of Nmap scans to detect open ports on devices in my local network, followed by traffic capture using Wireshark. The goal was to understand network exposure and potential security risks.
 
