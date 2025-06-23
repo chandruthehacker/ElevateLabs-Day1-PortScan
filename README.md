@@ -40,21 +40,22 @@ Performed network reconnaissance using Nmap and Wireshark to identify active hos
 **36:**
 - 53/tcp - dnsmasq 2.51
 
+![Nmap Screenshot](./screenshots/Nmap-Screenshot.png)
 
 
-## ⚠️ Identified Risks  
-1. **SMB Exposure (Port 445)**  
-   - Risk: Critical (WannaCry vulnerability)  
-   - Recommendation: Disable SMBv1 immediately  
 
-2. **Outdated dnsmasq (Port 53)**  
-   - Risk: High (CVE-2017-14491)  
-   - Recommendation: Update to latest version  
+## ⚠️ Security Risks Identified
 
-3. **NetBIOS (Port 139)**  
-   - Risk: Medium (Information disclosure)  
-   - Recommendation: Restrict to internal network  
+| IP Address       | Open Port | Service         | Risk Summary                                      |
+|------------------|-----------|------------------|--------------------------------------------------|
+| 192.168.203.36   | 53/tcp    | dnsmasq 2.51     | Outdated DNS software; vulnerable to DNS cache poisoning if unpatched. |
+| 192.168.203.157  | 445/tcp   | SMB              | Often targeted by malware like WannaCry.         |
+|                  | 139/tcp   | NetBIOS-SSN      | Can allow enumeration or MITM if unfiltered.     |
+|                  | 16001/tcp | Unknown          | Unknown service, possibly custom. Should be reviewed. |
 
+> 🔐 **Suggestion:** Devices should disable unused services and apply firewall rules to limit exposure on untrusted networks.
+
+---
 
 
 ## 📊 Wireshark Analysis  
@@ -62,6 +63,7 @@ Performed network reconnaissance using Nmap and Wireshark to identify active hos
 - Verified TCP 3-way handshake patterns  
 - Identified scan timing characteristics  
 
+![Wireshark Screenshot](./screenshots/Wireshark-Screenshot.png)
 
 
 ## 🔧 Mitigation Steps  
@@ -92,12 +94,13 @@ ElevateLabs-Day1-PortScan/
 
 
 
-## 📚 Lessons Learned
+## 📘 What I Learned
 
-- Practical Nmap scanning techniques
-- Importance of service version control
-- Network traffic analysis fundamentals
-- Risk assessment methodologies
+- How to discover open ports and services in a network.
+- Real-world use of `-sS`, `-sV`, and `-O` options in Nmap.
+- Packet analysis using Wireshark (especially TCP SYN/SYN-ACK).
+- Identifying risks by correlating ports/services with vulnerabilities.
+- How attackers use scans to fingerprint devices before an attack.
 
 ## 🧠 Interview Q&A
 
