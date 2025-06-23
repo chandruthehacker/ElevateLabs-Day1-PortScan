@@ -77,16 +77,17 @@ iptables -A INPUT -p tcp --dport 445 -j DROP
 
 ## 📂 File Structure
 ```plaintext
-task1/  
+ElevateLabs-Day1-PortScan/  
 ├── scans/  
-│   ├── full_scan.txt  
-│   ├── os_detection.txt  
+│   ├── 1_simple-scan.txt
+│   ├── basic-syn-scan.txt
+│   ├── os_detection.txt 
+│   ├── version-detection.txt
 ├── captures/  
-│   ├── nmap_traffic.pcapng  
-│   └── wireshark_filters.txt  
+│   ├── nmap-syn-scan-wireshark.pcapng
 └── screenshots/  
-    ├── nmap_scan.png  
-    └── wireshark_capture.png
+    ├── Nmap-Screenshot.png
+    └── Wireshark-Screenshot.png
 ```
 
 
