@@ -1,4 +1,4 @@
-# 🚨 Elevate Cybersecurity Internship - Task 1
+# 🚨 ElevateLabs Cybersecurity Internship - Task 1
 
 ## 🔍 Task Title: Network Port Scanning and Analysis
 
