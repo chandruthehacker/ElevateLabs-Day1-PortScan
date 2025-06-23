@@ -1,0 +1,32 @@
+# Nmap 7.97 scan initiated Mon Jun 23 20:22:33 2025 as: nmap -sV -oN version-detection.txt -oX C:\\Users\\VICTUS\\AppData\\Local\\Temp\\zenmap-t4izdl3u.xml 192.168.203.36/24
+Nmap scan report for 192.168.203.36
+Host is up (0.021s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+53/tcp open  domain  dnsmasq 2.51
+MAC Address: 0E:D0:04:41:7B:29 (Unknown)
+
+Nmap scan report for 192.168.203.93
+Host is up (0.016s latency).
+All 1000 scanned ports on 192.168.203.93 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 1C:D1:07:91:C9:0F (Realme Chongqing Mobile Telecommunications)
+
+Nmap scan report for 192.168.203.196
+Host is up (0.0097s latency).
+All 1000 scanned ports on 192.168.203.196 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 40:AE:30:16:61:2F (TP-Link PTE.)
+
+Nmap scan report for 192.168.203.157
+Host is up (0.00030s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+16001/tcp open  fmsascon?
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jun 23 20:25:17 2025 -- 256 IP addresses (4 hosts up) scanned in 164.20 seconds

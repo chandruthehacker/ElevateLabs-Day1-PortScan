@@ -1,0 +1,60 @@
+# Nmap 7.97 scan initiated Mon Jun 23 20:26:07 2025 as: nmap -O -oN os-detection.txt -oX C:\\Users\\VICTUS\\AppData\\Local\\Temp\\zenmap-_e5rqhvz.xml 192.168.203.36/24
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+Nmap scan report for 192.168.203.36
+Host is up (0.0037s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE
+53/tcp open  domain
+MAC Address: 0E:D0:04:41:7B:29 (Unknown)
+Device type: switch|general purpose|phone
+Running (JUST GUESSING): Aruba ArubaOS-CX 10.X (96%), Google Android 10.X|12.X|11.X (96%), Linux 4.X|5.X|2.6.X|3.X (96%)
+OS CPE: cpe:/o:arubanetworks:arubaos_cx:10.04 cpe:/o:google:android:10 cpe:/o:linux:linux_kernel:4.14 cpe:/o:google:android:12 cpe:/o:linux:linux_kernel:5.4 cpe:/o:linux:linux_kernel:2.6.18 cpe:/o:linux:linux_kernel:3 cpe:/o:google:android:11
+Aggressive OS guesses: Aruba ArubaOS-CX 10.04 (96%), Android 10 - 11 (Linux 4.14) (96%), Android 10 (Linux 4.14) (96%), Android 9 - 10 (Linux 4.9 - 4.14) (96%), Android 12 (Linux 5.4) (96%), Linux 2.6.18 (96%), Linux 2.6.32 (96%), Linux 2.6.39 - 3.2 (96%), Linux 3.1 - 3.2 (96%), Linux 3.10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Nmap scan report for 192.168.203.93
+Host is up (0.023s latency).
+All 1000 scanned ports on 192.168.203.93 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 1C:D1:07:91:C9:0F (Realme Chongqing Mobile Telecommunications)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 192.168.203.196
+Host is up (0.0071s latency).
+All 1000 scanned ports on 192.168.203.196 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 40:AE:30:16:61:2F (TP-Link PTE.)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 192.168.203.157
+Host is up (0.00011s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+16001/tcp open  fmsascon
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.97%E=4%D=6/23%OT=135%CT=1%CU=39199%PV=Y%DS=0%DC=L%G=Y%TM=68596B
+OS:57%P=i686-pc-windows-windows)SEQ(SP=100%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=
+OS:S%TS=A)SEQ(SP=101%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=
+OS:1%ISR=108%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=1%ISR=10C%TI=I%CI=I%II
+OS:=I%SS=S%TS=A)SEQ(SP=FE%GCD=1%ISR=102%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFF
+OS:D7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7NW8ST11%O5=MFFD7NW8ST
+OS:11%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(
+OS:R=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%
+OS:W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)
+OS:T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A
+OS:=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%D
+OS:F=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=8
+OS:0%CD=Z)
+
+Network Distance: 0 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jun 23 20:27:27 2025 -- 256 IP addresses (4 hosts up) scanned in 81.00 seconds
