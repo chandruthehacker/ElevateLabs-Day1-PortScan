@@ -1,109 +1,87 @@
-# 🚨 ElevateLabs Cybersecurity Internship - Task 1
+# 🔍Port Scanning
+**ElevateLabs Cybersecurity Internship - Task 1**  
 
-## 🔍 Task Title: Network Port Scanning and Analysis
+## 📋 Overview  
+Performed network reconnaissance using Nmap and Wireshark to identify active hosts, open ports, and potential vulnerabilities in the local network (192.168.203.0/24).  
 
-This task involved performing various types of Nmap scans to detect open ports on devices in my local network, followed by traffic capture using Wireshark. The goal was to understand network exposure and potential security risks.
+## 🎯 Objectives  
+- Identify live hosts and network topology  
+- Detect open ports and running services  
+- Fingerprint operating systems  
+- Analyze scan traffic patterns  
+- Assess security risks  
 
----
+## 🛠 Tools Used  
+| Tool | Purpose | Command Examples |  
+|------|---------|------------------|  
+| Nmap | Network scanning | `nmap -sS 192.168.203.0/24` |  
+| Wireshark | Traffic analysis | `tcp.flags.syn==1` filter |  
+| Zenmap | GUI for Nmap | Visual topology scanning |  
 
-## 🎯 Objective
+## 📌 Key Findings  
+### Host Discovery  
+- **192.168.203.157**: Windows PC (SMB, RPC open)  
+- **192.168.203.36**: Android device (DNS open)  
+- **192.168.203.93**: Realme mobile device  
 
-- Perform a TCP SYN scan to detect open ports.
-- Identify the services running on discovered ports.
-- Detect operating systems of connected hosts.
-- Capture live scan traffic using Wireshark.
-- Analyze and document risks related to exposed ports.
+### Open Ports
+**157:**
+- 135/tcp - Microsoft RPC
+- 139/tcp - NetBIOS
+- 445/tcp - SMB
+- 16001/tcp - Unknown
 
----
+**36:**
+- 53/tcp - dnsmasq 2.51
 
-## 🛠 Tools Used
+## ⚠️ Identified Risks  
+1. **SMB Exposure (Port 445)**  
+   - Risk: Critical (WannaCry vulnerability)  
+   - Recommendation: Disable SMBv1 immediately  
 
-| Tool      | Purpose                             |
-|-----------|-------------------------------------|
-| Nmap      | Port scanning & service detection   |
-| Zenmap    | GUI wrapper for Nmap                |
-| Wireshark | Packet sniffing & traffic analysis  |
+2. **Outdated dnsmasq (Port 53)**  
+   - Risk: High (CVE-2017-14491)  
+   - Recommendation: Update to latest version  
 
----
+3. **NetBIOS (Port 139)**  
+   - Risk: Medium (Information disclosure)  
+   - Recommendation: Restrict to internal network  
 
-## 🧪 Scans Performed
+## 📊 Wireshark Analysis  
+- Captured 500+ SYN packets during scan  
+- Verified TCP 3-way handshake patterns  
+- Identified scan timing characteristics  
 
-### 1️⃣ Simple Nmap Scan (`1_simple-scan.txt`)
-- **Target:** My Windows machine (`192.168.203.157`)
-- **Ports Open:**
-  - `135/tcp` → Microsoft RPC
-  - `139/tcp` → NetBIOS Session
-  - `445/tcp` → SMB (Windows Sharing)
-  - `16001/tcp` → Unknown (custom/local service?)
+## 🔧 Mitigation Steps  
+```bash  
+# Windows SMB hardening:  
+Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol  
 
----
+# Firewall rule example:  
+iptables -A INPUT -p tcp --dport 445 -j DROP
+```
 
-### 2️⃣ TCP SYN Scan (`basic-syn-scan.txt`)
-- **Target Subnet:** `192.168.203.0/24`
-- **Hosts Found:** `192.168.203.157`, `192.168.203.36`, `192.168.203.93`
-- **Open Ports on Mobile (`.36`):**
-  - `53/tcp` → `domain` (DNS)
-
----
-
-### 3️⃣ OS Detection (`os-detection.txt`)
-- **Results:**
-  - `.36`: Android or Linux (high accuracy)
-  - `.93`: Realme device (Mobile Telecom), OS fuzzy
-  - `.157`: Windows OS (my PC)
-
----
-
-### 4️⃣ Service Version Detection (`version-detection.txt`)
-- **Services Identified:**
-  - `.36`: `dnsmasq 2.51`
-  - `.157`: Microsoft RPC, NetBIOS, SMB
-
----
-
-## 📡 Wireshark Packet Capture
-
-- **File:** `nmap-syn-scan-wireshark.pcapng`
-- **Filtered:** TCP SYN packets sent during scan
-- **How:** Applied filter `tcp.flags.syn == 1` and exported relevant traffic.
-
-![Nmap Screenshot](./Nmap-Screenshot.png)
-![Wireshark Screenshot](./Wireshark-Screenshot.png)
-
----
-
-## ⚠️ Security Risks Identified
-
-| IP Address       | Open Port | Service         | Risk Summary                                      |
-|------------------|-----------|------------------|--------------------------------------------------|
-| 192.168.203.36   | 53/tcp    | dnsmasq 2.51     | Outdated DNS software; vulnerable to DNS cache poisoning if unpatched. |
-| 192.168.203.157  | 445/tcp   | SMB              | Often targeted by malware like WannaCry.         |
-|                  | 139/tcp   | NetBIOS-SSN      | Can allow enumeration or MITM if unfiltered.     |
-|                  | 16001/tcp | Unknown          | Unknown service, possibly custom. Should be reviewed. |
-
-> 🔐 **Suggestion:** Devices should disable unused services and apply firewall rules to limit exposure on untrusted networks.
-
----
-
-## 📘 What I Learned
-
-- How to discover open ports and services in a network.
-- Real-world use of `-sS`, `-sV`, and `-O` options in Nmap.
-- Packet analysis using Wireshark (especially TCP SYN/SYN-ACK).
-- Identifying risks by correlating ports/services with vulnerabilities.
-- How attackers use scans to fingerprint devices before an attack.
-
----
-
-## 📁 Repository Structure
-
+## 📂 File Structure
 ```plaintext
-.
-├── 1_simple-scan.txt
-├── basic-syn-scan.txt
-├── version-detection.txt
-├── os-detection.txt
-├── nmap-syn-scan-wireshark.pcapng
-├── Nmap-Screenshot.png
-├── Wireshark-Screenshot.png
-└── README.md
+task1/  
+├── scans/  
+│   ├── full_scan.txt  
+│   ├── os_detection.txt  
+├── captures/  
+│   ├── nmap_traffic.pcapng  
+│   └── wireshark_filters.txt  
+└── screenshots/  
+    ├── nmap_scan.png  
+    └── wireshark_capture.png
+```
+
+## 📚 Lessons Learned
+
+- Practical Nmap scanning techniques
+- Importance of service version control
+- Network traffic analysis fundamentals
+- Risk assessment methodologies
+
+---
+> Security is always excessive until it's not enough.
+> Report generated by Chandraprakash C for ElevateLabs
