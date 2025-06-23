@@ -1,5 +1,10 @@
 # ElevateLabs Cybersecurity Internship - Task 1
 # 🔍Port Scanning
+```markdown
+![Tool](https://img.shields.io/badge/Tool-Nmap-blue)
+![Level](https://img.shields.io/badge/Level-Beginner-brightgreen)
+![Traffic](https://img.shields.io/badge/Wireshark-Traffic%20Analysis-blueviolet)
+```
 
 ## 📋 Overview  
 Performed network reconnaissance using Nmap and Wireshark to identify active hosts, open ports, and potential vulnerabilities in the local network (192.168.203.0/24).  
